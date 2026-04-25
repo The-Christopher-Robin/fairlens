@@ -18,7 +18,6 @@ htmlcov/
 
 *.log
 output/
-reports/
 
 .DS_Store
 Thumbs.db
