@@ -1,0 +1,23 @@
+probe_dir: probes
+output_dir: output
+
+toxicity_model: martin-ha/toxic-comment-model
+sentiment_model: distilbert-base-uncased-finetuned-sst-2-english
+clip_model: openai/clip-vit-base-patch32
+
+toxicity_threshold: 0.5
+num_generations: 5
+seed: 42
+
+models:
+  - name: gpt2
+    hf_id: gpt2
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
+
+  - name: distilgpt2
+    hf_id: distilgpt2
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
