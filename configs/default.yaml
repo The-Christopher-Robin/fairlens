@@ -9,6 +9,7 @@ toxicity_threshold: 0.5
 num_generations: 5
 seed: 42
 
+# Quick default: 2 small models for fast iteration
 models:
   - name: gpt2
     hf_id: gpt2

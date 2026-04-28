@@ -18,6 +18,12 @@ python scripts/run_eval.py --config configs/default.yaml -v
 
 Models are downloaded from HuggingFace Hub on first run (~500MB for gpt2 + classifiers). CPU is fine for the default config.
 
+For the full 7-model sweep (gpt2, distilgpt2, opt-125m, pythia-70m, pythia-160m, bloom-560m, gpt2-medium):
+
+```bash
+python scripts/run_eval.py --config configs/full.yaml -v
+```
+
 ## How It Works
 
 1. **Probes** — YAML files in `probes/` define template sentences with `{group}` placeholders and optional stereotype lexicons per demographic group.
@@ -78,7 +84,9 @@ pytest tests/ -v
 
 ```
 fairlens/
-├── configs/default.yaml        # evaluation config
+├── configs/
+│   ├── default.yaml            # quick 2-model config
+│   ├── full.yaml               # full 7-model sweep
 ├── probes/                     # bias probe YAML files
 ├── fairlens/
 │   ├── config.py               # config loading

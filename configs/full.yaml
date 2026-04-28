@@ -1,0 +1,54 @@
+probe_dir: probes
+output_dir: output
+
+toxicity_model: martin-ha/toxic-comment-model
+sentiment_model: distilbert-base-uncased-finetuned-sst-2-english
+clip_model: openai/clip-vit-base-patch32
+
+toxicity_threshold: 0.5
+num_generations: 5
+seed: 42
+
+# Full sweep across 7 open models (CPU-runnable, ~2-3h total)
+models:
+  - name: gpt2
+    hf_id: gpt2
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
+
+  - name: distilgpt2
+    hf_id: distilgpt2
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
+
+  - name: opt-125m
+    hf_id: facebook/opt-125m
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
+
+  - name: pythia-70m
+    hf_id: EleutherAI/pythia-70m
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
+
+  - name: bloom-560m
+    hf_id: bigscience/bloom-560m
+    max_new_tokens: 40
+    batch_size: 4
+    device: cpu
+
+  - name: gpt2-medium
+    hf_id: gpt2-medium
+    max_new_tokens: 40
+    batch_size: 4
+    device: cpu
+
+  - name: pythia-160m
+    hf_id: EleutherAI/pythia-160m
+    max_new_tokens: 40
+    batch_size: 8
+    device: cpu
